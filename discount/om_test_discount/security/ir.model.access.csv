@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_om_test_discount_om_test_discount,om_test_discount.om_test_discount,model_om_test_discount_om_test_discount,base.group_user,1,1,1,1

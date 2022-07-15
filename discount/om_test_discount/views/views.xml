@@ -1,0 +1,39 @@
+<odoo>
+
+
+    <!--    <record id="inherited_view_order_form" model="ir.ui.view">-->
+<!--        <field name="name">sale.move.form</field>-->
+<!--        <field name="model">sale.order</field>-->
+<!--        <field name="inherit_id" ref="sale.view_order_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <field name="note" position="replace">-->
+<!--                        <group name="discount" colspan="2">-->
+<!--                            <field name="percentage"/>-->
+<!--                        </group>-->
+<!--                </field>-->
+<!--            </field>-->
+<!--    </record>-->
+    <record id="inherited_view_order_form" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+             <field name="note" position="replace">
+            <group>
+                <group>
+                    <!--                         <div class="oe_subtotal_footer_separator oe_inline o_td_label"> -->
+                    <label for="discount_type" default="percentage"/>
+                    <!--                         </div> -->
+                     <field name="discount_type" default="percentage" nolabel="1" class="oe_inline"/>
+                        <label for="percentage" attrs="{'invisible':[('discount_type','=','amount')]}"/>
+                        <div class="o_row">
+                            <field name="percentage" attrs="{'invisible':[('discount_type','=','amount')]}"/>
+                            <span attrs="{'invisible':[('discount_type','=','amount')]}">%%</span>
+                        </div>
+                            <field name="amount" attrs="{'invisible':[('discount_type','=','percentage')]}"/>
+                </group>
+            </group>
+             </field>
+        </field>
+    </record>
+</odoo>
